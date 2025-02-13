@@ -11,7 +11,11 @@ const path = require("path")
 
 dotenv.config()
 const app = express()
-app.use(cors())
+app.use(cors({
+    origin: 'https://cafeu-e-com-frontend.vercel.app',
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type,Authorization'
+}))
 app.use(express.json())
 
 app.use(express.urlencoded())
