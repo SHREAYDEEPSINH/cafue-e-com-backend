@@ -5,37 +5,6 @@ const auth = require("../middleware/auth");
 const cartRouter = express.Router();
 
 
-// cartRouter.get("/", auth, async (req, res) => {
-//     try {
-//       // `auth` middleware se `req.body.cartId` me userId aa raha hoga
-//       const userId = req.body.cartId;
-  
-//       // Find carts for the logged-in user
-//       const carts = await CartModel.find({cartId : userId});
-//         console.log("carts" , carts)
-//       res.status(200).json({ carts });
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).json({ message: "Failed to fetch carts", error: error.message });
-//     }
-//   });
-
-// cartRouter.post("/addcart", auth, async (req, res) => {
-//     try {
-//         const newcart = new CartModel({
-//             cartId: req.body.cartId,
-//             cartName: req.body.cartName,
-//         });
-
-//         await CartModel.create(newcart)
-//         res.status(201).json({ message: "cart added successfully", newcart });
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ message: "Failed to add cart", error: error.message });
-//     }
-// });
-
-
 // Get all cart items for a user
 cartRouter.get("/", auth, async (req, res) => {
     try {
