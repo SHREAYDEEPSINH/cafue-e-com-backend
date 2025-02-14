@@ -14,12 +14,7 @@ const app = express()
 app.use(express.json())
 
 app.use(express.urlencoded())
-app.use(cors({
-    origin: "https://cafeu-e-com-frontend.vercel.app", // Allow only your frontend
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type,Authorization",
-    credentials: true, // If using cookies or authentication headers
-}))
+app.use(cors())
 
 app.use("/user", userRouter)
 app.use("/product", productRouter)
