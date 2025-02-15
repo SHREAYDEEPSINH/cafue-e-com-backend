@@ -14,8 +14,7 @@ const app = express()
 app.use(express.json())
 
 app.use(express.urlencoded())
-app.use(cors())
-
+app.use(cors({ origin: "*" }));
 
 app.get("/" , async (req,res)=>{
    await res.send("Hello server")
