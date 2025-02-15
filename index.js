@@ -16,6 +16,11 @@ app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
 
+
+app.get("/" , async (req,res)=>{
+   await res.send("Hello server")
+})
+
 app.use("/user", userRouter)
 app.use("/product", productRouter)
 app.use("/uploads", express.static(path.join(__dirname, "uploads")))
