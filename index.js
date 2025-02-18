@@ -27,7 +27,7 @@ app.use(express.urlencoded())
 
 
 app.get("/" , async (req,res)=>{
-   await res.send("Hello server")
+   await res.send("Hello")
 })
 
 app.use("/user", userRouter)
