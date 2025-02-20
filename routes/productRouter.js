@@ -22,7 +22,7 @@ productRouter.post("/insertProductData" , ProductModel.imageUpload , async (req 
     try {
         console.log(req.file ,"file ")
         if(req.file){
-            req.body.image = ProductModel.imagePath + "/" + req.file.filename;
+            req.body.image = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
         }
         await ProductModel.create(req.body);
         console.log("data added successfully");
