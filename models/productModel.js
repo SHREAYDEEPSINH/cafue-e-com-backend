@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path")
+const fs = require('fs');
+
+const uploadDir = path.join(__dirname, "..", imagePath);
+
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 const imagePath = "uploads"
 
@@ -32,7 +39,10 @@ const productSchema = mongoose.Schema({
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname ,".." , imagePath))
+        cb(null, uploadDir)
+
+        console.log('Image Upload Path:', path.join(__dirname, "..", imagePath));
+
     },
     filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now())
