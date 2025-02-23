@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
-const multer = require("multer");
-const path = require("path")
-const fs = require('fs');
+// const multer = require("multer");
+// const path = require("path")
+// const fs = require('fs');
 
-const uploadDir = path.join(__dirname, "..", imagePath);
+// const uploadDir = path.join(__dirname, "..", imagePath);
 
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
+// if (!fs.existsSync(uploadDir)) {
+//     fs.mkdirSync(uploadDir, { recursive: true });
+// }
 
-const imagePath = "uploads"
+// const imagePath = "uploads"
 
 
 const productSchema = mongoose.Schema({
@@ -37,21 +37,21 @@ const productSchema = mongoose.Schema({
 })
 
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, uploadDir)
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, uploadDir)
 
-        console.log('Image Upload Path:', path.join(__dirname, "..", imagePath));
+//         console.log('Image Upload Path:', path.join(__dirname, "..", imagePath));
 
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now())
-    }
-})
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, file.fieldname + '-' + Date.now())
+//     }
+// })
 
 
-productSchema.statics.imageUpload = multer({ storage: storage }).single("image")
-productSchema.statics.imagePath = imagePath;
+// productSchema.statics.imageUpload = multer({ storage: storage }).single("image")
+// productSchema.statics.imagePath = imagePath;
 
 const ProductModel = mongoose.model("productDatabase", productSchema);
 

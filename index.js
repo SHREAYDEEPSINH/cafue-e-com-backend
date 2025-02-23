@@ -6,7 +6,7 @@ const auth = require("./middleware/auth");
 const cors = require("cors");
 const cartRouter = require("./routes/cartRouter");
 const productRouter = require("./routes/productRouter");
-const path = require("path")
+// const path = require("path")
 
 
 dotenv.config()
@@ -32,7 +32,7 @@ app.get("/" , async (req,res)=>{
 
 app.use("/user", userRouter)
 app.use("/product", productRouter)
-app.use("/uploads", express.static(path.join(__dirname, "uploads")))
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 app.use(auth)
 app.use("/cart", cartRouter)
 
