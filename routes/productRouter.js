@@ -30,7 +30,6 @@ productRouter.post("/insertProductData" , async (req ,res)=>{
     } catch (error) {
         console.log(error);
     }
-    res.redirect("back")
 })
 
 productRouter.delete("/deleteData/:id" , async (req ,res)=>{
