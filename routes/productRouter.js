@@ -33,18 +33,20 @@ productRouter.post("/insertProductData" , async (req ,res)=>{
     res.redirect("back")
 })
 
+productRouter.delete("/deleteData/:id" , async (req ,res)=>{
+    try {
+        await ProductModel.findByIdAndDelete(req.params.id);
+        res.status(200).json({ message: "cart deletes successfully" });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+    res.redirect("back")
+})
+
 
 module.exports = productRouter
 
 
-// productRouter.get("/deleteData/:id" , async (req ,res)=>{
-//     console.log(req.params.id)
-
-//     await UserModel.findByIdAndDelete(req.params.id);
-//     console.log("data deleted successfully");
-
-//     res.redirect("back")
-// })
 
 
 // productRouter.get("/editData/:id" , async (req,res)=>{
