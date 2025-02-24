@@ -20,13 +20,12 @@ cartRouter.get("/", auth, async (req, res) => {
 // Add item to cart
 cartRouter.post("/addcart", auth, async (req, res) => {
     try {
-        const { productId, productImage, productName, productPrice, quantity } = req.body;
+        const { productId, productName, productPrice, quantity } = req.body;
         const userId = req.body.cartId; 
 
         const newCartItem = new CartModel({
             cartId: userId,
             productId,
-            productImage,
             productName,
             productPrice,
             quantity: quantity || 1
