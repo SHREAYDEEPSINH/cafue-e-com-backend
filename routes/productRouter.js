@@ -34,9 +34,11 @@ productRouter.post("/insertProductData" , async (req ,res)=>{
 })
 
 productRouter.delete("/deleteData/:id" , async (req ,res)=>{
+    console.log(req.params.id)
+
     try {
         await ProductModel.findByIdAndDelete(req.params.id);
-        res.status(200).json({ message: "Product delete successfully" });
+        res.status(200).json({ message: "Product deletes successfully" });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
